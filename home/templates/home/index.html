@@ -1,0 +1,39 @@
+{% block start %}
+<div class="container">
+  <h1>this is sent Email</h1>
+  <a href="{% url 'send_email' %}" class="btn btn-success">Send Email</a>
+</div>
+    <h1>this ye upadted h template is return by django server</h1>
+    <a href="/contact">contact</a>|
+    <a href="/about">about</a>
+ <table class="container">
+    <tr>
+      <th>S. No.</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Can Vote</th>
+    </tr>
+    {% for people in peoples %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{people.name}}</td>
+      <td>{{people.age}}</td>
+      <td>
+        {% if people.age >= 18 %}
+        👍
+        {% else %}
+        👎
+        {% endif %}
+      </td>
+    </tr>
+
+    {% endfor %}
+     </table>
+   <p>
+    {% if "cucumber" in vegetables%}
+      Yes Available
+      {% endif %}
+      No available 
+   
+   </p> 
+   {% endblock %}
